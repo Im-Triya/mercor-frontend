@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Hero from './components/Hero';
 
 function App() {
   const [data, setData] = useState([]);
@@ -14,9 +15,13 @@ function App() {
 
   return (
     <div className="App">
-      {data.map((member, index) => (
+
+    <Hero />
+
+   
+      {/* {data.map((member, index) => (
         <h1 key={index}>{member}</h1>
-      ))}
+      ))} */}
     </div>
   );
 }
