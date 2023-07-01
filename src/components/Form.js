@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 const Form = () => {
   const [reply, setReply] = useState(null);
   const [question, setQuestion] = useState("");
+  const [chat, setChat] = useState([]);
 
   const fetchReply = async () => {
     try {
-      const response = await fetch("/reply", {
+      const response = await fetch("/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -15,7 +16,8 @@ const Form = () => {
       });
       const data = await response.json();
       setReply(data.reply);
-      console.log(data);
+      setChat((prevChat) => [...prevChat, { question, reply: data.reply }]);
+      console.log(chat);
     } catch (error) {
       console.error("Error fetching reply:", error);
     }
@@ -28,13 +30,34 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchReply();
+    setQuestion("");
   };
 
   return (
     <div className="bg-black text-white flex flex-col items-center justify-center py-10">
-      <h3 className="text-3xl">Start Chatting Now !!</h3>
+     
+     {chat.length === 0 && <h3 className="text-3xl">Start Chatting Now !!</h3>} 
 
-      <form className="w-full max-w-md mt-4" onSubmit={handleSubmit}>
+      <div className="chat-history w-full max-w-lg mt-4">
+
+  {chat.map((chatItem, index) => (
+    <div>
+    <div className="flex justify-end ">
+    <p className="px-8 py-1 bg-gray-600 rounded-xl">{chatItem.question}</p>
+    </div>
+
+    <div className="flex justify-start">
+    <p className="px-2 py-1 bg-white rounded-xl text-black">{chatItem.reply}</p>
+    </div>
+    
+    
+    </div>
+   
+  ))}
+</div>
+
+
+      <form className="w-full max-w-lg mt-4 mb-8" onSubmit={handleSubmit}>
         <div className="flex items-center border-b border-teal-500 py-2">
           <input
             className="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
@@ -53,7 +76,7 @@ const Form = () => {
         </div>
       </form>
 
-      {reply && <h1>{reply}</h1>}
+      {/* {reply && <h1>{reply}</h1>} */}
     </div>
   );
 };
