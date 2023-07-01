@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Hero from './components/Hero';
+import Form from './components/Form';
 
 function App() {
   const [data, setData] = useState([]);
@@ -17,6 +18,8 @@ function App() {
     <div className="App">
 
     <Hero />
+
+    <Form />
 
    
       {/* {data.map((member, index) => (

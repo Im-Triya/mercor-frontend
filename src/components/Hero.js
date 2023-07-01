@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
-    <div className="bg-black py-20">
+    <div className="py-16">
       <div className="container mx-auto grid grid-cols-2">
         <div className="">
           <lottie-player
@@ -16,7 +16,7 @@ const Hero = () => {
           ></lottie-player>
         </div>
 
-        <div className="flex flex-col items-center justify-center text-white">
+        <div className="flex flex-col items-center justify-center">
           <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-blue-500">
             Market Assistant
           </h2>
@@ -25,7 +25,7 @@ const Hero = () => {
             One stop solution to all your quetions.
           </p>
 
-          <p className="text-xl my-2">
+          <p className="text-xl my-1">
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
@@ -41,8 +41,8 @@ const Hero = () => {
             />
           </p>
 
-          <div className="my-1 flex items-center text-xl">
-          <button className="border-white border-2 px-4 py-2 rounded-2xl hover:bg-white hover:text-black">
+          <div className="my-2 flex items-center text-xl">
+          <button className="text-xl text-white bg-gradient-to-br from-purple-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-2">
           Start Chatting
           </button>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-12 ml-4">
