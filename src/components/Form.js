@@ -40,20 +40,18 @@ const Form = () => {
 
       <div className="chat-history w-full max-w-lg mt-4">
 
-  {chat.map((chatItem, index) => (
-    <div>
-    <div className="flex justify-end ">
-    <p className="px-8 py-1 bg-gray-600 rounded-xl">{chatItem.question}</p>
+      {chat.map((chatItem, index) => (
+  <div key={index}>
+    <div className="flex justify-end">
+      <p className="px-8 py-1 bg-gray-600 rounded-xl">{chatItem.question}</p>
     </div>
 
     <div className="flex justify-start">
-    <p className="px-2 py-1 bg-white rounded-xl text-black">{chatItem.reply}</p>
+      <p className="px-2 py-1 bg-white rounded-xl text-black">{chatItem.reply}</p>
     </div>
-    
-    
-    </div>
-   
-  ))}
+  </div>
+))}
+
 </div>
 
 
